@@ -1,0 +1,51 @@
+<! doctype html>
+<html>
+<head>
+  <title>web programming</title>
+  <meta charset="utf-8">
+  <style>
+    .note{color:blue;}
+  </style>
+</head>
+
+<body>
+<a href="WebProgramming.html"><h1>2020 자율동아리 웹프로그래밍</h1></a>
+
+<p>
+아래 링크를 참고하면서 자유롭게 문서형 웹페이지를 제작해봅시다!<br>
+링크를 참고해도 모르겠는 부분은 부장한테 물어보기! (* 부장도 모를 수 있음... 구글의 도움을 받아 함께 해결합시다)
+이해가 잘 안되면 <strong>마우스 우클릭 + 소스코드보기</strong>로 이 웹페이지의 코드를 볼 수도 있습니다.
+</p>
+
+<p>
+  <ul>
+    <li><a href="environment.html"><strong>개발환경</strong></a> - 웹페이지를 만들기 전에</li>
+    <li><a href="head.html"><strong>head</strong></a> - html 코드를 짤 때 맨 앞에 꼭 적어야 하는 요소들!</li>
+    <li><a href="tag.html"><strong>tag</strong></a> - html 문법의 핵심, 태그</li>
+    <li><a href="image_n_link.html"><strong>image & link</strong></a> - 이미지 삽입과 링크 삽입</li>
+    <li><a href="github.html"><strong>웹서버 구축</strong></a> - github에서 웹서버 구축하기</li>
+    <li><a href="crawling.html"><strong>크롤링</strong></a> - python을 이용한 크롤링, python 결과값을 html 웹페이지에 나타내기</li>
+  </ul>
+</p>
+
+<p>
+  크롤링에는 Python을 사용합니다<br>
+  크롤링을 위한 기본 코드는 다음과 같습니다<br>
+  <div class = "note"> #requests, BeautifulSoup, re 세 가지의 모듈을 사용합니다<br></div>
+  import requests <br>
+  from bs4 import BeautifulSoup <br>
+  import re <br>
+
+  <div class = "note">#원하는 웹페이지와 웹페이지의 소스코드를 불러옵니다<br></div>
+  변수명1 = requests.get("웹페이지 링크")<br>
+  변수명2 = BeautifulSoup(변수명1.content, "html.parser") <br>
+
+  <div class = "note">#원하는 데이터를 뽑아냅니다 <br></div>
+  변수명3 = str(변수명2.find_all(attrs={'요소명':'요소 이름'})) <br>
+
+  <div class = "note">#뽑아낸 데이터에서 태그를 지우고 텍스트만 남깁니다 <br></div>
+  print(re.sub('<.+?>', '', 변수명3, 0).strip()) <br>
+</p>
+
+</body>
+<html>
